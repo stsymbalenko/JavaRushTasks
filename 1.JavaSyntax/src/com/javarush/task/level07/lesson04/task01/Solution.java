@@ -1,4 +1,4 @@
-package com.javarush.test.level07.lesson04.task01;
+package com.javarush.task.level07.lesson04.task01;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -46,3 +46,7 @@ public class Solution
                 return max;
     }
 }
+
+/*Объяснение : Создаем сам массив на 20 элементов. Находим максимум среди всех.
+        Внимательно смотрим и так же меняем возвращаемое значение в обоих методах.
+        В первом массив и во втором максимум*/

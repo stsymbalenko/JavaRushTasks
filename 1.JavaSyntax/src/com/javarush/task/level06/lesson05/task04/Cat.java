@@ -1,4 +1,4 @@
-package com.javarush.test.level06.lesson05.task04;
+package com.javarush.task.level06.lesson05.task04;
 
 /* Cчётчик котов
 В конструкторе класса Cat [public Cat()] увеличивать счётчик котов (статическую переменную этого же класса catCount) на 1.

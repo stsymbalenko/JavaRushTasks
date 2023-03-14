@@ -1,0 +1,11 @@
+package com.javarush.task.level03.lesson06.task05;
+
+/* Изучаем японскийВыведи на экран 日本語*/
+public class Solution
+{
+    public static void main(String[] args)
+    {
+        //напишите тут ваш код
+        System.out.println("日本語");
+    }
+}

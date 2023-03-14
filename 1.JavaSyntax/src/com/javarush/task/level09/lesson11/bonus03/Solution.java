@@ -1,4 +1,4 @@
-package com.javarush.test.level09.lesson11.bonus03;
+package com.javarush.task.level09.lesson11.bonus03;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;

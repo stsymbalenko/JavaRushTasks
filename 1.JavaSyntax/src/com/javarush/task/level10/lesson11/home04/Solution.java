@@ -1,4 +1,4 @@
-package com.javarush.test.level10.lesson11.home04;
+package com.javarush.task.level10.lesson11.home04;
 
 
 /* Большая зарплата

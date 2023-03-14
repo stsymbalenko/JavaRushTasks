@@ -1,4 +1,4 @@
-package com.javarush.test.level08.lesson11.bonus02;
+package com.javarush.task.level08.lesson11.bonus02;
 
 import java.io.BufferedReader;
 import java.io.IOException;
