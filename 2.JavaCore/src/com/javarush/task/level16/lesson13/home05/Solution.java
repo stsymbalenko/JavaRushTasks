@@ -1,9 +1,44 @@
-:56:57.545 [4660] [BootstrapperMain] Product code is the same, this is a minor upgrade scenario, returning.
-27/09/2020 10:56:57.545 [4660] [BootstrapperMain] Extracting MfeEpAac_mfeprotect.exe : C:\Users\rom\AppData\Local\Temp\MfeEpAac_mfeprotect.exe
-27/09/2020 10:56:57.607 [4660] [BootstrapperMain] Extraction successful
-27/09/2020 10:56:57.607 [4660] [BootstrapperMain] This is a 64 bit system
-27/09/2020 10:56:57.607 [4660] [BootstrapperMain] "C:\Users\rom\AppData\Local\Temp\MfeEpAac_mfeprotect.exe" -add -rootlocation "C:\Program Files\McAfee\Endpoint Security" -rootlocation "C:\Program Files (x86)\McAfee\Endpoint Security" -folder "C:\ProgramData\McAfee\Endpoint Security"
-27/09/2020 10:56:57.607 [4660] [BootstrapperMain] RunCommandLine: "C:\Users\rom\AppData\Local\Temp\MfeEpAac_mfeprotect.exe" -add -rootlocation "C:\Program Files\McAfee\Endpoint Security" -rootlocation "C:\Program Files (x86)\McAfee\Endpoint Security" -folder "C:\ProgramData\McAfee\Endpoint Security"
-27/09/2020 10:56:57.764 [4660] [BootstrapperMain] RunCommandLine: Process return code : 0
-27/09/2020 10:56:57.764 [4660] [BootstrapperMain] Running application to gain installer exclusion succeeded.
-27/09/2020 10:56:57.764 [4660] [BootstrapperMain] msiex
+package com.javarush.test.level16.lesson13.home05;
+
+/* Взаимная блокировка
+1. Разберись, как работает программа.
+2. Не меняя классы T1 и T2 сделай так, чтобы они завершились, не обязательно успешно.
+3. метод sleep не использовать.
+*/
+
+public class Solution {
+    static Thread t1 = new T1();
+    static Thread t2 = new T2();
+
+    public static void main(String[] args) throws InterruptedException {
+        t1.start();
+        t1.interrupt();
+        t2.start();
+
+
+    }
+
+    public static class T1 extends Thread {
+        @Override
+        public void run() {
+            try {
+                t2.join();
+                System.out.println("T1 finished");
+            } catch (InterruptedException e) {
+                System.out.println("T1 was interrupted");
+            }
+        }
+    }
+
+    public static class T2 extends Thread {
+        @Override
+        public void run() {
+            try {
+                t1.join();
+                System.out.println("T2 finished");
+            } catch (InterruptedException e) {
+                System.out.println("T2 was interrupted");
+            }
+        }
+    }
+}

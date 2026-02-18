@@ -1,0 +1,76 @@
+package com.javarush.test.level08.lesson08.task05;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
+/* Удалить людей, имеющих одинаковые имена
+Создать словарь (Map<String, String>) занести в него десять записей по принципу «фамилия» - «имя».
+Удалить людей, имеющих одинаковые имена.
+*/
+
+public class Solution
+{
+
+    public static HashMap<String, String> createMap()
+    {
+        //напишите тут ваш код
+        HashMap<String, String> map = new HashMap<>();
+        map.put("Petrov", "Sergey");
+        map.put("Ivanov", "Ivan");
+        map.put("Sidorov", "Inna");
+        map.put("Petrov8", "Inna");
+        map.put("Petrov2", "Misha");
+        map.put("Petrov3", "Olia");
+        map.put("Ivanov2", "Petia");
+        map.put("Petrov5", "Sveta");
+        map.put("Petrov6", "Katia");
+        map.put("Sidorov7", "Liuda");
+
+        return map;
+    }
+
+    public static void removeTheFirstNameDuplicates(HashMap<String, String> map)
+    {
+        HashMap<String, String> map1 = new HashMap<String, String>(map);
+        HashMap<String, String> map2 = new HashMap<String, String>(map);
+        Iterator<Map.Entry<String,String>> iterator1 = map1.entrySet().iterator();
+
+        while (iterator1.hasNext())
+        {
+            Map.Entry<String, String> pair1 = iterator1.next();
+            int count = 0;
+
+            Iterator<Map.Entry<String, String>> iterator2 = map2.entrySet().iterator();
+           // while(iterator1.hasNext())
+            for (Map.Entry<String, String> pair2 : map2.entrySet())
+            {
+                //Map.Entry<String, String> pair1 = iterator1.next();
+
+                    if (pair1.getValue().equals(pair2.getValue()))
+                    {
+                        count++;
+                    }
+
+
+            }
+            if (count > 1)
+            {
+                removeItemFromMapByValue(map, pair1.getValue());
+            }
+
+        }
+
+
+    }
+
+    public static void removeItemFromMapByValue(HashMap<String, String> map, String value)
+    {
+        HashMap<String, String> copy = new HashMap<String, String>(map);
+        for (Map.Entry<String, String> pair: copy.entrySet())
+        {
+            if (pair.getValue().equals(value))
+                map.remove(pair.getKey());
+        }
+    }
+}

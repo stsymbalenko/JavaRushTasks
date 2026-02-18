@@ -1,18 +1,31 @@
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title></title>
-</head>
+package com.javarush.test.level15.lesson02.task01;
 
-<body>
-<table height="120" width="1000" border="0" cellpadding="0" cellspacing="0">
-    <td height="110"> 
-	<table width="1000" height="110" border="0" cellpadding="0" cellspacing="0">
-		<td width="200" align=center><img src="images/logo.gif" width="160" height="60" /> </td>
-        		<td width="800">
-			<table width="760" height="50" border="0" cellpadding="0" cellspacing="0">
-             				<td> <font size="5" face="Arial" color="#2222aa"> <b>Manual del usuario del Controlador de la familia FE/GbE de Realtek</b> </font> </td>  <tr>
-				<td> <font size="2" color="##2222aa" >Versi&oacute;n: 1.0 </font> </td>			
-			</table></td>
-	</table></td> <tr> 
-    <td height="10"><hr size="10" align="l
+/* ООП - Расставить интерфейсы
+1. Добавить все возможные интерфейсы из Movable, Sellable, Discountable в класс Clothes.
+2. Реализовать их методы.
+*/
+
+public class Solution {
+    public static interface Movable {
+        boolean getAllowedAction(String name);
+    }
+
+    public static interface Sellable {
+        Object getAllowedAction(String name);
+    }
+
+    public static interface Discountable {
+        Object getAllowedAction();
+    }
+
+    public static class Clothes implements Discountable, Movable {
+
+        public boolean getAllowedAction(String name){
+            return false;
+        }
+
+        public Object getAllowedAction(){
+            return new Object();
+        }
+    }
+}

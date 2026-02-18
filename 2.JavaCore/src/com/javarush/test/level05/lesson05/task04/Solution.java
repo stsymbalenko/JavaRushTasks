@@ -1,0 +1,49 @@
+package com.javarush.test.level05.lesson05.task04;
+//import com.javarush.test.level05.lesson05.task01.Cat;
+
+/* Создать три объекта типа Cat
+В методе main создать три объекта типа Cat и заполнить их данными.
+Использовать класс Cat из первой задачи. Класс Cat создавать не надо.
+*/
+
+public class Solution {
+    public static void main(String[] args) {
+
+        Cat cat1 = new Cat();
+        cat1.name = "vasya";
+        cat1.age = 10;
+        cat1.strength = 3;
+        cat1.weight = 4;
+
+        Cat cat2 = new Cat();
+        cat2.name = "kolya";
+        cat2.age = 11;
+        cat2.strength = 4;
+        cat2.weight = 5;
+
+        Cat cat3 = new Cat();
+        cat3.name = "tina";
+        cat3.age = 12;
+        cat3.weight = 6;
+        cat3.strength = 5;
+
+    }
+
+    public static class Cat {
+
+        public static int count = 0;
+        private String name;
+        private int age;
+        private int weight;
+        private int strength;
+
+        public Cat() {
+            count++;
+
+            this.name = name;
+            this.age = age;
+            this.weight = weight;
+            this.strength = strength;
+        }
+    }
+}

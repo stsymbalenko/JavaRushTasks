@@ -1,33 +1,49 @@
-<HTML>
-<HEAD>
-<TITLE>setup.html</TITLE>
-<meta http-equiv="content-type" content="text-html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="format.css">
-</HEAD>
+package com.javarush.test.level15.lesson12.bonus01;
 
-<H3>ドライバのインストール</H3>
-ドライバをインストールするには、以下の手順に従ってください:
-<ol>
-<li> 実行ファイル「setup.exe」を実行します。
-<li> setup.exeプログラムが表示する指示に従います。
-</ol>
-<p> 
-<br>
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
-注意:
-<ul>
-<li>	Plug &amp; Play対応のWindowsプラットフォームでは、アダプタは自動的に検出・設定されます。 Windowsシステムによる自動インストールをすべて停止してください。 <li>	ドライバをインストールすするには、管理者権限がなければなりません。
-</ul>
+/* Осваивание статического блока
+1. В отдельных файлах создать классы Plane и Helicopter, реализующие интерфейс Flyable.
+2. Класс Plane должен иметь 1 конструктор с параметром int - количество перевозимых пассажиров.
+3. В статическом методе reset класса Solution:
+3.1. Считать с консоли параметр типа String. Параметр может быть "plane" или "helicopter".
+3.2. Если параметр равен "helicopter", то статическому объекту Flyable result присвоить объект класса Helicopter.
+3.3. Если параметр равен "plane", то считать второй параметр типа int, статическому объекту Flyable result присвоить объект класса Plane.
+4. В статическом блоке инициализировать Flyable result вызвав метод reset.
+5. Закрыть поток ввода методом close().
+*/
 
-<P>
-<BR>
+public class Solution {
+    static {
 
-<H3>手動インストール</H3>
-手動インストールでは、上記の「setup.exe」ではなく、インストールファイル（INF）を使用してドライバをインストールします。ドライバを手動でインストールするには、デバイスマネージャを開き、ネットワークアダプタのツリーリストを展開し、「Realtek FE/Gbeファミリーコントローラー」を選択してから、マウスの右ボタンをクリックし、メニュー項目の中からドライバ更新を選んで実行します。そして、指示に従ってINFファイルのパスを指定してください。 
-<p> <br>注意：
-<ul>
-<li> 手動インストールは上級ユーザーによるインストール方法です。 一般ユーザーは「setup.exe」を使用してドライバをインストールしてください。
-</ul> <p> <br>
+            reset();
 
-<H3>サイレントインストール</H3>
-このセクションでは、ユーザーの画面にダイアログボックスを表示したり、ユーザーの操作を必要としたりせずに、ドライバをイ
+    }
+
+    public static Flyable result;
+
+    public static void reset() {
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        try {
+            String str = reader.readLine();
+            if (str.equals("helicopter")) {
+                result = new Helicopter();
+            } else if (str.equals("plane")) {
+                int strint = Integer.parseInt(reader.readLine());
+                result = new Plane(strint);
+            }
+
+
+            reader.close();
+        }
+        catch (IOException e){
+            e.getStackTrace();
+        }
+    }
+
+
+}

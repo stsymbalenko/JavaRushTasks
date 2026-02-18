@@ -1,0 +1,81 @@
+package com.javarush.test.level09.lesson11.home09;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
+/* Десять котов
+Создать класс кот – Cat, с полем «имя» (String).
+Создать словарь Map(<String, Cat>) и добавить туда 10 котов в виде «Имя»-«Кот».
+Получить из Map множество(Set) всех имен и вывести его на экран.
+*/
+
+public class Solution
+{
+    public static void main(String[] args)
+    {
+        Map<String, Cat> map = createMap();
+        Set<Cat> set = convertMapToSet(map);
+        printCatSet(set);
+        //Cat cat = new Cat("Cat");
+
+    }
+
+    public static Map<String, Cat> createMap()
+    {
+        //напишите тут ваш код
+        Map<String, Cat> map = new HashMap<String, Cat>();
+
+
+        map.put("Murka", new Cat("Murka"));
+        map.put("Kot2", new Cat("Tom"));
+        map.put("Kot3", new Cat("Soer"));
+        map.put("Kot4", new Cat("Vais"));
+        map.put("Kot5", new Cat("Murka"));
+        map.put("Kot6", new Cat("Kote"));
+        map.put("Kot7", new Cat("Pukh"));
+        map.put("Kot8", new Cat("Masiania"));
+        map.put("Kot9", new Cat("Mushka"));
+        map.put("Kot10", new Cat("Frts"));
+
+        return map;
+    }
+
+    public static Set<Cat> convertMapToSet(Map<String, Cat> map)
+    {
+        //напишите тут ваш код
+        Set<Cat> set = new HashSet<Cat>();
+
+        for(Map.Entry<String, Cat> entry : map.entrySet()){
+            set.add(entry.getValue());
+        }
+
+        return set;
+    }
+
+    public static void printCatSet(Set<Cat> set)
+    {
+        for (Cat cat:set)
+        {
+            System.out.println(cat);
+        }
+    }
+
+    public static class Cat
+    {
+        private String name;
+
+        public Cat(String name)
+        {
+            this.name = name;
+        }
+
+        public String toString()
+        {
+            return "Cat "+this.name;
+        }
+    }
+
+
+}

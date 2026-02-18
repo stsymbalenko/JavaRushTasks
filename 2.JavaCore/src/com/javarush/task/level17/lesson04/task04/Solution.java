@@ -1,25 +1,27 @@
-/** @file
-  Simple Text In protocol from the UEFI 2.0 specification.
+package com.javarush.test.level17.lesson04.task04;
 
-  Abstraction of a very simple input device like a keyboard or serial
-  terminal.
+/* Синхронизированный президент
+И снова Singleton паттерн - синхронизация в статическом блоке
+Внутри класса OurPresident в статическом блоке создайте синхронизированный блок.
+Внутри синхронизированного блока инициализируйте president.
+*/
 
-  Copyright (c) 2006 - 2008, Intel Corporation
-  All rights reserved. This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
+public class Solution {
+    public static class OurPresident {
 
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+        private static OurPresident president;
 
-**/
+        static {
+            synchronized (OurPresident.class){
+                president = new OurPresident();
+            }
+        }
 
-#ifndef __SIMPLE_TEXT_IN_PROTOCOL_H__
-#define __SIMPLE_TEXT_IN_PROTOCOL_H__
+        private OurPresident() {
+        }
 
-#include <gpxe/efi/ProcessorBind.h>
-
-#define EFI_SIMPLE_TEXT_INPUT_PROTOCOL_GUID \
-  { \
-    0x387477c1, 0x69c7, 0x11d2, {0x8e, 0x39, 0x0, 0
+        public static OurPresident getOurPresident() {
+            return president;
+        }
+    }
+}

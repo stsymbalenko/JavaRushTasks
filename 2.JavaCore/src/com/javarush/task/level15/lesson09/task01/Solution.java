@@ -1,4 +1,24 @@
-×¾ASMÿf |s
-Şjó¨eÂQ]®Z&÷qO´{„7Ä8%¾öWn‰<Æ³DsÆõ¼\p©piV²ã!©C—õÊÜaaˆ–ß,@®9ƒªL›íV|0öVÀY{»§o–!——¨m·)¸¸Ç‘ı†B<‰V3AMŸ-WNouâü9£È›Åyá>éÆY9>'ùkğ«sWê
-§Î9ñˆ/k!©.ÀpzçÁŒŸëˆÈšš·½gÀ³wTğS¿qxSâîÈ,/ÂÅ"ìà63Ş²¤ˆQ1V1sÎ’|xcÀèÿªá1õ°‘Q•şæƒÑy	İ|©ÇzX·æ‘ãÆÀSƒ	Gİ«ØIï·LÚïQ§Ó¶:i
-cÿàŠºûû•<–{ıèºw–à»áb‘Ü<Ù‡ÉIíaßIíª³¼“Vi¡É¹VŸ€8'ŠRhT»³Ò£œ€B¦cÑv‘;1AOW’72e‡zÆÉ¬§Lí–˜Î¼Ê¼åˆTûÛŸ±¶°ÉÍoŞàÉúyu¿B>Ç‰Çe±jü«×?^bâ>…›f@ï¢Œ{‘lˆï7½±·MI†Ê7†¾ˆ¥uÊusˆ‰î3­f{‘@²<ãp ë£F}Ó%E]èÕÜ“5‹©¥Pã'æ8ØüwŸQ;EÆ&¾É«ı‡Ùœä[¢¯øÄªä|Ø~!¦OÏWcƒjœ[mf¥Øè˜ØËIÂW_£Âºó/Â¹VO”«œÛÑÜÛÂdÓ>“Ù[ûJsÛÏ¾ûFrrİ
+package com.javarush.test.level15.lesson09.task01;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/* Ğ¡Ñ‚Ğ°Ñ‚Ğ¸ĞºĞ¸ 1
+Ğ’ ÑÑ‚Ğ°Ñ‚Ğ¸Ñ‡ĞµÑĞºĞ¾Ğ¼ Ğ±Ğ»Ğ¾ĞºĞµ Ğ¸Ğ½Ğ¸Ñ†Ğ¸Ğ°Ğ»Ğ¸Ğ·Ğ¸Ñ€Ğ¾Ğ²Ğ°Ñ‚ÑŒ labels 5 Ñ€Ğ°Ğ·Ğ»Ğ¸Ñ‡Ğ½Ñ‹Ğ¼Ğ¸ Ğ¿Ğ°Ñ€Ğ°Ğ¼Ğ¸.
+*/
+
+public class Solution {
+    public static Map<Double, String> labels = new HashMap<Double, String>();
+
+    static {
+        labels.put(1.0, "1");
+        labels.put(2.0, "2");
+        labels.put(3.0, "3");
+        labels.put(4.0, "4");
+        labels.put(5.0, "5");
+    }
+
+    public static void main(String[] args) {
+        System.out.println(labels);
+    }
+}

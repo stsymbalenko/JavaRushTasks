@@ -1,0 +1,120 @@
+package com.javarush.test.level08.lesson11.home06;
+
+/* Вся семья в сборе
+1. Создай класс Human с полями имя (String), пол (boolean), возраст (int), дети (ArrayList<Human>).
+2. Создай объекты и заполни их так, чтобы получилось: два дедушки, две бабушки, отец, мать, трое детей.
+3. Вывести все объекты Human на экран.
+*/
+
+import java.util.ArrayList;
+
+public class Solution
+{
+    public static void main(String[] args)
+    {
+        //напишите тут ваш код
+        String fatherZhenaName = "Pavlo";
+        boolean fatherZhenaSex = true;
+        int fatherZhenaAge = 78;
+        Human ZhenaFather = new Human(fatherZhenaName, fatherZhenaSex, fatherZhenaAge);
+
+        String motherZhenaName = "Olya";
+        boolean motherZhenaSex = false;
+        int motherZhenaAge = 78;
+        Human ZhenaMother = new Human(motherZhenaName, motherZhenaSex, motherZhenaAge);
+
+        String fatherMuzhName = "Oleg";
+        boolean fatherMuzhSex = true;
+        int fatherMuzhAge = 78;
+        Human MuzhFather = new Human(fatherMuzhName, fatherMuzhSex, fatherMuzhAge);
+
+        String motherMuzhName = "Sergey";
+        boolean motherMuzhSex = true;
+        int motherMuzhAge = 78;
+        Human MuzhMother = new Human(motherMuzhName, motherMuzhSex, motherMuzhAge);
+
+        String ZhenaName = "Valentyna";
+        boolean ZhenaSex = false;
+        int ZhenaAge = 78;
+        Human Zhena = new Human(ZhenaName, ZhenaSex, ZhenaAge, ZhenaFather,ZhenaMother);
+
+        String MuzhName = "Vitya";
+        boolean MuzhSex = true;
+        int MuzhAge = 78;
+        Human Muzh = new Human(MuzhName, MuzhSex, MuzhAge, MuzhFather, MuzhMother);
+
+        ArrayList<Human> children = new ArrayList<Human>();
+        children.add(new Human("Petya", true, 21));
+        children.add(new Human("Katya", false, 26));
+        children.add(new Human("Genya", true, 12));
+
+
+
+
+
+        System.out.println();
+        System.out.println(Zhena);
+        System.out.println(ZhenaMother);
+        System.out.println(ZhenaFather);
+        System.out.println(Muzh);
+        System.out.println(MuzhFather);
+        System.out.println(MuzhMother);
+        System.out.println(children.get(0));
+        System.out.println(children.get(1));
+        System.out.println(children.get(2));
+
+    }
+
+    public static class Human
+    {
+        //напишите тут ваш код
+        String name;
+        boolean sex;
+        int age;
+        Human father;
+        Human mother;
+        ArrayList<Human> children = new ArrayList<Human>();
+
+
+        Human(String name, boolean sex, int age, Human father, Human mother)
+        {
+            this.name = name;
+            this.sex = sex;
+            this.age = age;
+            this.father = father;
+            this.mother = mother;
+            //this.children = children;
+
+        }
+
+        Human(String name, boolean sex, int age)
+        {
+            this.name = name;
+            this.sex = sex;
+            this.age = age;
+        }
+
+        public String toString()
+        {
+            String text = "";
+            text += "Имя: " + this.name;
+            text += ", пол: " + (this.sex ? "мужской" : "женский");
+            text += ", возраст: " + this.age;
+
+            int childCount = this.children.size();
+            if (childCount > 0)
+            {
+                text += ", дети: "+this.children.get(0).name;
+
+                for (int i = 1; i < childCount; i++)
+                {
+                    Human child = this.children.get(i);
+                    text += ", "+child.name;
+                }
+            }
+
+            return text;
+        }
+    }
+
+}

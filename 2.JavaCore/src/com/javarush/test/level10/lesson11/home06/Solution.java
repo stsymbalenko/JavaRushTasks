@@ -1,0 +1,98 @@
+package com.javarush.test.level10.lesson11.home06;
+
+/* Конструкторы класса Human
+Напиши класс Human с 6 полями. Придумай и реализуй 10 различных конструкторов для него.
+Каждый конструктор должен иметь смысл.
+*/
+
+public class Solution
+{
+    public static void main(String[] args)
+    {
+
+    }
+
+    public static class Human
+    {
+        //напишите тут ваши переменные и конструкторы
+        private String name;
+        private int age;
+        private int weight;
+        private int growth;
+        private Human father;
+        private Human mother;
+
+        Human(String name){
+            this.name = name;
+        }
+
+        Human(String name, int age){
+            this.name = name;
+            this.age = age;
+        }
+
+        Human(String name, int age, int weight){
+            this.name = name;
+            this.age = age;
+            this.weight = weight;
+        }
+
+        Human(String name, int age, int weight, int growth){
+            this.name = name;
+            this.age = age;
+            this.growth = growth;
+            this.weight = weight;
+        }
+
+        Human(String name, int age, int weight, int growth, Human father){
+            this.name = name;
+            this.age = age;
+            this.growth = growth;
+            this.weight = weight;
+            this.father = father;
+        }
+
+
+        Human(String name, int weight, int growth, Human father, Human mother){
+            this.name = name;
+            this.growth = growth;
+            this.weight = weight;
+            this.father = father;
+            this.mother = mother;
+        }
+
+        Human(String name, Human father, Human mother){
+            this.name = name;
+            this.father = father;
+            this.mother = mother;
+        }
+
+        Human(String name, Human father){
+            this.name = name;
+            this.father = father;
+
+        }
+
+        Human(String name, int weight, int growth, Human father){
+            this.name = name;
+            this.growth = growth;
+            this.weight = weight;
+            this.father = father;
+
+        }
+
+
+        Human(String name, int age, int weight, int growth, Human father, Human mother){
+            this.name = name;
+            this.age = age;
+            this.growth = growth;
+            this.weight = weight;
+            this.father = father;
+            this.mother = mother;
+        }
+
+
+
+
+    }
+}

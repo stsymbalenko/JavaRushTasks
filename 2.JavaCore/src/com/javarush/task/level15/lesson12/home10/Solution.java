@@ -1,32 +1,35 @@
-/** @file
-  EFI Guid Partition Table Format Definition.
+package com.javarush.test.level15.lesson12.home10;
 
-  Copyright (c) 2006 - 2008, Intel Corporation
-  All rights reserved. This program and the accompanying materials
-  are licensed and made available under the terms and conditions of the BSD License
-  which accompanies this distribution.  The full text of the license may be found at
-  http://opensource.org/licenses/bsd-license.php
+/* ООП - наследование
+Исправить класс Hrivna так, чтоб избежать ошибку StackOverflowError, класс Money менять нельзя.
+*/
 
-  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
-  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+import com.javarush.test.level14.lesson08.home09.Hrivna;
 
-**/
+public class Solution {
+    public static void main(String[] args) {
+        System.out.println(new Hrivna().getAmount());
+    }
 
-#ifndef __UEFI_GPT_H__
-#define __UEFI_GPT_H__
+    public static abstract class Money {
+        abstract Money getMoney();
 
-///
-/// The primary GUID Partition Table Header must be
-/// located in LBA 1 (i.e., the second logical block).
-///
-#define PRIMARY_PART_HEADER_LBA 1
+        public Object getAmount() {
+            return getMoney().getAmount();
+        }
+    }
 
-///
-/// EFI Partition Table Signature: "EFI PART"
-///
-#define EFI_PTAB_HEADER_ID      0x5452415020494645ULL
+    //add your code below - добавь код ниже
+    public static class Hrivna extends Money {
+        public double amount = 123d;
 
-#pragma pack(1)
+        public Hrivna getMoney() {
 
-///
-/// GPT Partition T
+            return this;
+        }
+
+        public Hrivna getAmount(){
+            return this;
+        }
+    }
+}

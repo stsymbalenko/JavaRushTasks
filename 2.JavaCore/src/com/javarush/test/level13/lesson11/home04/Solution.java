@@ -1,0 +1,56 @@
+package com.javarush.test.level13.lesson11.home04;
+
+/* Запись в файл
+1. Прочесть с консоли имя файла.
+2. Считывать строки с консоли, пока пользователь не введет строку "exit".
+3. Вывести абсолютно все введенные строки в файл, каждую строчку с новой стороки.
+*/
+
+
+import java.io.*;
+import java.util.ArrayList;
+
+
+public class Solution
+{
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        String file = reader.readLine();
+
+        //FileReader fr = new FileReader(file);
+       // BufferedReader br = new BufferedReader(fr);
+        FileWriter fw = new FileWriter(file);
+        //BufferedWriter buff = new BufferedWriter(fw);
+        ArrayList<String> list = new ArrayList<>();
+
+
+        //System.out.println("Початок введення");
+        while (true)
+        {
+            //System.out.println("Вводь строку");
+            String str = reader.readLine();
+            list.add(str);
+            if(str.equals("exit")) {
+                //System.out.println("Кінець введення");
+                break;}
+
+            }
+
+
+
+
+       // buff.write(list);
+
+        for(int i = 0; i < list.size(); i++){
+            String str2 = list.get(i);
+            fw.write(str2);
+            fw.append("\r\n");
+        }
+
+        fw.close();
+        //buff.flush();
+        //buff.close();
+    }
+
+}

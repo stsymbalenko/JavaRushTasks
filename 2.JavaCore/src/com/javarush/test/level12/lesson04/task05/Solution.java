@@ -1,0 +1,44 @@
+package com.javarush.test.level12.lesson04.task05;
+
+/* Три метода возвращают максимальное из двух переданных в него чисел
+Написать public static методы: int max(int, int), long max (long, long), double max (double, double).
+Каждый метод должен возвращать максимальное из двух переданных в него чисел.
+*/
+
+public class Solution
+{
+    public static void main(String[] args)
+    {
+
+    }
+    public static int max(int a, int b){
+        int c;
+        if(a > b){
+            c = a;
+        }else{
+            c = b;
+        }
+        return c;
+    }
+
+    public static long max(long al, long bl){
+        long cl;
+        if(al > bl){
+            cl = al;
+        }else{
+            cl = bl;
+        }
+        return cl;
+    }
+
+    public static double max(double ad, double bd){
+        double cd;
+        if(ad > bd){
+            cd = ad;
+        }else{
+            cd = bd;
+        }
+        return cd;
+    }
+    //Напишите тут ваши методы
+}

@@ -1,60 +1,33 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-<head>
+package com.javarush.test.level18.lesson03.task02;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 
+/* ÐœÐ¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ñ‹Ð¹ Ð±Ð°Ð¹Ñ‚
+Ð’Ð²ÐµÑÑ‚Ð¸ Ñ ÐºÐ¾Ð½ÑÐ¾Ð»Ð¸ Ð¸Ð¼Ñ Ñ„Ð°Ð¹Ð»Ð°
+ÐÐ°Ð¹Ñ‚Ð¸ Ð¼Ð¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ñ‹Ð¹ Ð±Ð°Ð¹Ñ‚ Ð² Ñ„Ð°Ð¹Ð»Ðµ, Ð²Ñ‹Ð²ÐµÑÑ‚Ð¸ ÐµÐ³Ð¾ Ð½Ð° ÑÐºÑ€Ð°Ð½.
+Ð—Ð°ÐºÑ€Ñ‹Ñ‚ÑŒ Ð¿Ð¾Ñ‚Ð¾Ðº Ð²Ð²Ð¾Ð´Ð°-Ð²Ñ‹Ð²Ð¾Ð´Ð°
+*/
 
+public class Solution {
+    public static void main(String[] args) throws Exception {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String filename = reader.readLine();
 
+        FileInputStream input = new FileInputStream(filename);
+        int min = input.read();
 
+        while (input.available() > 0){
+            int data = input.read();
 
-  <meta http-equiv="Content-Type" content="text/html; charset=Big5">
+            if (min > data){
+                min = data;
+            }
+        }
+        reader.close();
+        input.close();
 
-  <link rel="stylesheet" type="text/css" href="format.css">
-  <title>1</title>
-</head>
-
-<body>
-
-<h3>
-<center>Åwªï¨Ï¥ÎRealtek RTL81XX¥þ¨t¦CFast/Gigabit Network Adapter</center>
-</h3>
-
-<br>
-
-
-
-<h3> Â²¤¶</h3>
- 
-<p> ¦¹¨Ï¥Î»¡©ú¥]§t¤F¦w¸Ë Realtek RTL81XX¥þ¨t¦CFast/Gigabit Network Adapter ©Ò»Ý­nªº¸ê°T
-©Î¬O©ó¦w¸Ë®É¡A¥i¯à¹J¨ìªº°ÝÃD¤Î¬G»Ù±Æ°£¡C</p>
-
-
-<br>
-
-
-<h3> ¨Ï¥Î¦¹¤å¥ó </h3>
-
-<p>¦¹¨Ï¥Î¤â¥U¾A¥Î©ó¦w¸Ë Realtek RTL81XX¨t¦C Fast/Gigabit Network Adapter©ó¤U¦C Windows §@·~¨t²Î¡G</p>
-<p>
-
-Windows 8<br>
-
-
-</p>
-
-<ul>
-  <li>NDIS 6.30 Miniport driver Windows 8(32-bit)
-  </li>
-  <li>NDIS 6.30 Miniport driver Windows 8(64-bit)</li>
-</ul>
-<br>
-
-
-
-
-Windows 7
-<ul>
-
-  <li>NDIS 6.20 Miniport driver Windows 7(32-bit)
-  </li>
-  <li>NDIS 6.20 Minipo
+        System.out.print(min);
+    }
+}

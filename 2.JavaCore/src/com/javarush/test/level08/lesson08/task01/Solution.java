@@ -1,0 +1,39 @@
+package com.javarush.test.level08.lesson08.task01;
+
+import java.util.HashSet;
+import java.util.Set;
+
+/* 20 слов на букву «Л»
+Создать множество строк (Set<String>), занести в него 20 слов на букву «Л».
+*/
+
+public class Solution
+{
+    public static HashSet<String> createSet()
+    {
+        HashSet<String> set = new HashSet<String>();
+
+        set.add("Лоб");
+        set.add("Лом");
+        set.add("Лак");
+        set.add("Лаки");
+        set.add("Лоби");
+        set.add("Ломка");
+        set.add("Ложка");
+        set.add("Лифт");
+        set.add("Лейка");
+        set.add("Лоток");
+        set.add("Лоб2");
+        set.add("Лоб3");
+        set.add("Лоб4");
+        set.add("Лоб5");
+        set.add("Лоб6");
+        set.add("Лоб7");
+        set.add("Лоб8");
+        set.add("Лоб12");
+        set.add("Лоб23");
+        set.add("Лоб54");
+
+        return set;
+    }
+}

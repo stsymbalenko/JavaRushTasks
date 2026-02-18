@@ -1,29 +1,52 @@
-[General]
-Default%20Path=C:/Users/Administrator/Documents/R-TT/R-Studio
-SnapShoot%20Path=C:/Users/Administrator/Documents/R-TT/R-Studio
-Log%20Path=C:/Users/Administrator/Documents/R-TT/R-Studio
-Forensic%20Log%20Path=C:/Users/Administrator/Documents/R-TT/R-Studio
-Scan%20Path=C:/Users/Administrator/Documents/R-TT/R-Studio
-SysInfo%20Path=C:/Users/Administrator/Documents/R-TT/R-Studio
-BadSectors%20Path=C:/Users/Administrator/Documents/R-TT/R-Studio
-RAIDLayouts%20Path=C:/Users/Administrator/Documents/R-TT/R-Studio
-Image%20Path=C:/Users/Administrator/Documents/R-TT/R-Studio
-Recovery%20Path=C:/temp/
-FileTypes%20Path=C:/Users/Administrator/Documents/R-TT/R-Studio
-Files%20List%20Path=C:/Users/Administrator/Documents/R-TT/R-Studio
-HexViewFilesPath=C:/Users/Administrator/Documents/R-TT/R-Studio
-HexViewTemplatesPath=C:/Users/Administrator/Documents/R-TT/R-Studio
-Show%20dialog%20open%20HexView=0
-RemoveScanInfoShowAgain=0
-UpdateScanInfoShowAgain=0
-SaveScanInfoShowAgain=0
-UpgradeToNetworkShowAgain=0
-KnownFileTypesDialogX=0
-KnownFileTypesDialogY=0
-KnownFileTypesDialogCX=0
-KnownFileTypesDialogCY=0
-LogViewDialogPositionX=0
-ViewDialogPositionY=0
-LogViewDialogWidth=0
-LogViewDialogHeight=0
-Tab%20View%20Spli
+package com.javarush.test.level17.lesson10.home02;
+
+/* Comparable
+Реализуйте интерфейс Comparable<Beach> в классе Beach, который будет использоваться нитями.
+*/
+
+public class Beach implements Comparable<Beach> {
+    private String name;      //название
+    private float distance;   //расстояние
+    private int quality;    //качество
+
+    public Beach(String name, float distance, int quality) {
+        this.name = name;
+        this.distance = distance;
+        this.quality = quality;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public synchronized void setName(String name) {
+        this.name = name;
+    }
+
+    public float getDistance() {
+        return distance;
+    }
+
+    public synchronized void setDistance(float distance) {
+        this.distance = distance;
+    }
+
+    public int getQuality() {
+        return quality;
+    }
+
+    public synchronized void setQuality(int quality) {
+        this.quality = quality;
+    }
+
+    @Override
+    public int compareTo(Beach o) {
+        int d = (int) (distance - o.getDistance());
+        int q =  quality - o.getQuality();
+        return 1000 * q + 100*d;
+
+
+    }
+
+
+}

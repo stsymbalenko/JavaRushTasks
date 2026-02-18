@@ -1,0 +1,31 @@
+package com.javarush.test.level15.lesson12.home05;
+
+/* Перегрузка конструкторов
+1. В классе Solution создайте по 3 конструктора для каждого модификатора доступа.
+2. В отдельном файле унаследуйте класс SubSolution от класса Solution.
+3. Внутри класса SubSolution создайте конструкторы командой Alt+Insert -> Constructors.
+4. Исправьте модификаторы доступа конструкторов в SubSolution так, чтобы они соответствовали конструкторам класса Solution.
+*/
+
+public class Solution {
+
+    public Solution(){}
+    public Solution(int i, short sh){}
+    public Solution(String s, short sh){}
+
+    private Solution(String s, int i){}
+    private Solution(Object ob){}
+    private Solution (int i){}
+
+
+    protected Solution (Integer in){}
+    protected Solution (Integer in, String s){}
+    protected Solution (Integer in, short sh){}
+
+    Solution(String s, boolean b){}
+    Solution(Integer in, boolean b){}
+    Solution(int i, boolean b){}
+
+
+}
+

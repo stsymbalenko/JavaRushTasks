@@ -1,26 +1,54 @@
-/*
- * Copyright (c) 2009 Joshua Oreman <oremanj@rwcr.net>.
- *
- * This program is free software; you can redistribute it and/or
- * modify it under the terms of the GNU General Public License as
- * published by the Free Software Foundation; either version 2 of the
- * License, or any later version.
- *
- * This program is distributed in the hope that it will be useful, but
- * WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
- * General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program; if not, write to the Free Software
- * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+package com.javarush.test.level15.lesson12.home05;
+
+/**
+ * Created by s.tsymbalenko on 03.10.2016.
  */
+public class SubSolution extends Solution {
 
-#ifndef _GPXE_EAPOL_H
-#define _GPXE_EAPOL_H
+    public SubSolution() {
+        super();
+    }
 
-/** @file
- *
- * Definitions for EAPOL (Extensible Authentication Protocol over
- * LANs) frames. Definitions for the packets usually encapsulated in
- * them are elsewhe
+    public SubSolution(int i, short sh) {
+        super(i, sh);
+    }
+
+    public SubSolution(String s, short sh) {
+        super(s, sh);
+    }
+
+    private SubSolution(String s, int i){
+
+    }
+    private SubSolution(Object ob){
+
+    }
+    private SubSolution (int i){
+
+    }
+
+
+    protected SubSolution(Integer in) {
+        super(in);
+    }
+
+    protected SubSolution(Integer in, String s) {
+        super(in, s);
+    }
+
+    protected SubSolution(Integer in, short sh) {
+        super(in, sh);
+    }
+
+    SubSolution(String s, boolean b) {
+        super(s, b);
+    }
+
+    SubSolution(Integer in, boolean b) {
+        super(in, b);
+    }
+
+    SubSolution(int i, boolean b) {
+        super(i, b);
+    }
+}

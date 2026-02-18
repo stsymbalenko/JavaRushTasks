@@ -1,58 +1,27 @@
-#ifndef _GPXE_IB_SRP_H
-#define _GPXE_IB_SRP_H
+package com.javarush.test.level16.lesson13.bonus01;
 
-/** @file
- *
- * SCSI RDMA Protocol over Infiniband
- *
- */
+import com.javarush.test.level16.lesson13.bonus01.ImageReaderFactory;
+import com.javarush.test.level16.lesson13.bonus01.common.ImageReader;
+import com.javarush.test.level16.lesson13.bonus01.common.ImageTypes;
 
-FILE_LICENCE ( BSD2 );
 
-#include <stdint.h>
-#include <gpxe/infiniband.h>
-#include <gpxe/srp.h>
+/* Factory method pattern
+1. Внимательно посмотри, какие классы у тебя есть.
+2. В отдельных файлах в пакете common создай классы JpgReader, PngReader, BmpReader,
+которые реализуют интерфейс ImageReader.
+3. В отдельном файле в пакете bonus01 создай класс ImageReaderFactory с одним методом.
+3.1. Подумай, как он должен называться.
+3.2. Подумай, какие модификаторы должны быть у этого метода.
+4. Этот метод должен:
+4.1. для каждого значения из ImageTypes возвращать соответствующий Reader,
+например, для ImageTypes.JPG - JpgReader;
+4.2. если передан неправильный параметр, то выбросить исключение IllegalArgumentException("Неизвестный тип картинки").
+*/
 
-/** SRP initiator port identifier for Infiniband */
-struct ib_srp_initiator_port_id {
-	/** Identifier extension */
-	struct ib_gid_half id_ext;
-	/** IB channel adapter GUID */
-	struct ib_gid_half hca_guid;
-} __attribute__ (( packed ));
+public class Solution {
+    public static void main(String[] args) {
 
-/** SRP target port identifier for Infiniband */
-struct ib_srp_target_port_id {
-	/** Identifier extension */
-	struct ib_gid_half id_ext;
-	/** I/O controller GUID */
-	struct ib_gid_half ioc_guid;
-} __attribute__ (( packed ));
+            ImageReader reader = ImageReaderFactory.getReader(ImageTypes.JPG);
 
-/**
- * Get Infiniband-specific initiator port ID
- *
- * @v port_ids		SRP port IDs
- * @ret initiator_port_id  Infiniband-specific initiator port ID
- */
-static inline __always_inline struct ib_srp_initiator_port_id *
-ib_srp_initiator_port_id ( struct srp_port_ids *port_ids ) {
-	return ( ( struct ib_srp_initiator_port_id * ) &port_ids->initiator );
+    }
 }
-
-/**
- * Get Infiniband-specific target port ID
- *
- * @v port_ids		SRP port IDs
- * @ret target_port_id	Infiniband-specific target port ID
- */
-static inline __always_inline struct ib_srp_target_port_id *
-ib_srp_target_port_id ( struct srp_port_ids *port_ids ) {
-	return ( ( struct ib_srp_target_port_id * ) &port_ids->target );
-}
-
-/** Infiniband-specific SRP parameters */
-struct ib_srp_parameters {
-	/** Source GID */
-	struct ib_gid sgid;
-	/** Destinatio

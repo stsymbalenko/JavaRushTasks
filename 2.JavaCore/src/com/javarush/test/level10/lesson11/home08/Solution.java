@@ -1,0 +1,51 @@
+package com.javarush.test.level10.lesson11.home08;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
+
+/* Массив списков строк
+Создать массив, элементами которого будут списки строк. Заполнить массив любыми данными и вывести их на экран.
+*/
+
+public class Solution
+{
+    public static void main(String[] args) throws IOException {
+        ArrayList<String>[] arrayOfStringList =  createList();
+
+        printList(arrayOfStringList);
+    }
+
+    public static ArrayList<String>[] createList() throws IOException {
+        //напишите тут ваш код
+
+        ArrayList<String>[] arrayOfStringList = new ArrayList[3];
+
+        arrayOfStringList[0]=new ArrayList<String>();
+        arrayOfStringList[1]=new ArrayList<String>();
+        arrayOfStringList[2]=new ArrayList<String>();
+
+
+        Collections.addAll(arrayOfStringList[0], "rweetert");
+        Collections.addAll(arrayOfStringList[1], "rweetert");
+        Collections.addAll(arrayOfStringList[2], "rweetert");
+
+
+
+
+        return arrayOfStringList;
+    }
+
+    public static void printList(ArrayList<String>[] arrayOfStringList)
+    {
+        for (ArrayList<String> list: arrayOfStringList)
+        {
+            for (String s : list)
+            {
+                System.out.println(s);
+            }
+        }
+    }
+}

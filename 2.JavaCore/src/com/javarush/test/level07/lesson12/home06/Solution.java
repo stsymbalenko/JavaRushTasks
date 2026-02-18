@@ -1,0 +1,129 @@
+package com.javarush.test.level07.lesson12.home06;
+
+/* Семья
+Создай класс Human с полями имя(String), пол(boolean),возраст(int), отец(Human), мать(Human).
+Создай объекты и заполни их так, чтобы получилось: Два дедушки, две бабушки, отец, мать, трое детей.
+Вывести объекты на экран.
+Примечание:
+Если написать свой метод String toString() в классе Human, то именно он будет использоваться при выводе объекта на экран.
+Пример вывода:
+Имя: Аня, пол: женский, возраст: 21, отец: Павел, мать: Катя
+Имя: Катя, пол: женский, возраст: 55
+Имя: Игорь, пол: мужской, возраст: 2, отец: Михаил, мать: Аня
+…
+*/
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
+public class Solution
+{
+    public static void main(String[] args)
+    {
+        //напишите тут ваш код
+        //BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
+        String fatherzhenaname = "Павел";
+        boolean fatherzhenasex = true;
+        int fatherzhenaage = 58;
+        Human ZhenaFather = new Human(fatherzhenaname, fatherzhenasex, fatherzhenaage);
+
+        String motherzhenaname = "Катя";
+        boolean motherzhenasex = false;
+        int motherzhenaage = 55;
+        Human ZhenaMother = new Human(motherzhenaname, motherzhenasex, motherzhenaage);
+
+        String fathermuzhname = "Олег";
+        boolean fathermuzhsex = true;
+        int fathermuzhage = 59;
+        Human MuzhFather = new Human(fathermuzhname, fathermuzhsex, fathermuzhage);
+
+        String mothermuzhname = "Оля";
+        boolean mothermuzhsex = false;
+        int mothermuzhage = 54;
+        Human MuzhMother = new Human(mothermuzhname, mothermuzhsex, mothermuzhage);
+
+        //Human ch = new Human();
+        String zhenaname = "Аня";
+        boolean zhenasex = false;
+        int zhenaage = 21;
+
+        Human Zhena = new Human(zhenaname, zhenasex, zhenaage, ZhenaFather,ZhenaMother);
+
+        String muzhname = "Михаил";
+        boolean muzhsex = true;
+        int muzhage = 25;
+        Human Muzh = new Human(muzhname, muzhsex, muzhage, MuzhFather, MuzhMother);
+
+        String detya1name = "Игорь";
+        boolean detya1sex = true;
+        int detya1age = 2;
+        Human Detya1 = new Human(detya1name, detya1sex, detya1age, Muzh, Zhena);
+
+        String detya2name = "Валя";
+        boolean detya2sex = false;
+        int detya2age = 5;
+        Human Detya2 = new Human(detya2name, detya2sex, detya2age, Muzh, Zhena);
+
+        String detya3name = "Сергей";
+        boolean detya3sex = true;
+        int detya3age = 10;
+        Human Detya3 = new Human(detya3name, detya3sex, detya3age, Muzh, Zhena);
+
+
+
+        System.out.println(Zhena);
+        System.out.println(ZhenaMother);
+        System.out.println(ZhenaFather);
+        System.out.println(Muzh);
+        System.out.println(MuzhFather);
+        System.out.println(MuzhMother);
+        System.out.println(Detya1);
+        System.out.println(Detya2);
+        System.out.println(Detya3);
+
+    }
+
+    public static class Human
+    {
+        //напишите тут ваш код
+        private String name;
+        private boolean sex;
+        private int age;
+        private Human father;
+        private Human mother;
+
+        Human(String name, boolean sex, int age, Human father, Human mother)
+        {
+            this.name = name;
+            this.sex = sex;
+            this.age = age;
+            this.father = father;
+            this.mother = mother;
+        }
+
+        Human(String name, boolean sex, int age)
+        {
+            this.name = name;
+            this.sex = sex;
+            this.age = age;
+        }
+
+        public String toString()
+        {
+            String text = "";
+            text += "Имя: " + this.name;
+            text += ", пол: " + (this.sex ? "мужской" : "женский");
+            text += ", возраст: " + this.age;
+
+            if (this.father != null)
+                text += ", отец: " + this.father.name;
+
+            if (this.mother != null)
+                text += ", мать: " + this.mother.name;
+
+            return text;
+        }
+    }
+
+}
